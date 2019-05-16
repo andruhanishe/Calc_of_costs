@@ -10,6 +10,51 @@
 
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Purchases List</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <input type="text" id="name" required placeholder="Name" class="form-control">
+        </div>
+        <div class="col-3">
+            <input type="text" id="category" required placeholder="Category" class="form-control">
+        </div>
+        <div class="col-3">
+            <input type="number" min="0" id="price" required placeholder="Price" class="form-control">
+        </div>
+        <div class="col">
+            <button id="add" class="btn btn-outline-primary">Add</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul id="items" class="list-group mt-3"></ul>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <h4>Most expensive purchase:</h4>
+            <div id="most_exp_pur"></div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <h4>Most expensive category:</h4>
+            <div id="most_exp_cat"></div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <h4>Stats:</h4>
+            <div id="totalSum"></div>
+            <div id="totalCount"></div>
+        </div>
+    </div>
+</div>
 
 <script src="js/app.js" type="module"></script>
 
