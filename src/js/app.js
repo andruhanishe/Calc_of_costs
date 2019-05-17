@@ -107,8 +107,30 @@ buttonEl.addEventListener("click", () =>{
     itemElCol_4.appendChild(removeEl);
 
     let btnArray = itemsEl.getElementsByTagName('button');
-    console.log(purchases);
-    console.log(btnArray);
+    // console.log(purchases);
+    // console.log(btnArray);
+
+    // let parent = btnArray[0];
+    // parent.onclick = function (e) {
+    //     // var a = e || event;
+    //     var target = e.target || e.srcElement;
+    //     for(var i = 0; i < parent.children.length; i++) {
+    //         if(parent.children[i] === target) return console.log(i);
+    //     }
+    // }
+
+    // document.body.onclick = function(event) {
+    //     var t = event.target||event.srcElement;
+    //     var cltabPos = t.className.indexOf('d-inline-block');
+    //     if (t.className.substring(cltabPos,cltabPos+19) == 'd-inline-block'){
+    //         for (var k = 0; k < t.parentNode.childNodes.length; k++){
+    //             if (t.parentNode.childNodes[k] == t){
+    //                 var indexTab = k;
+    //             }
+    //         }
+    //     }
+    //     console.log(indexTab);
+    // }
 
     removeEl.addEventListener('click', () => {
         for (let i = 0; i < btnArray.length; i++) {
@@ -132,8 +154,8 @@ buttonEl.addEventListener("click", () =>{
         }
 
         itemsEl.removeChild(itemEl);
-        console.log(btnArray);
-        console.log(purchases);
+        // console.log(btnArray);
+        // console.log(purchases);
     });
 
 
