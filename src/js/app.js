@@ -106,7 +106,9 @@ buttonEl.addEventListener("click", () =>{
     removeEl.textContent = 'X';
     itemElCol_4.appendChild(removeEl);
 
-    let btnArray = itemsEl.getElementsByTagName('button');
+    // let btnArray = itemsEl.getElementsByTagName('button');
+
+
     // console.log(purchases);
     // console.log(btnArray);
 
@@ -133,10 +135,22 @@ buttonEl.addEventListener("click", () =>{
     // }
 
     removeEl.addEventListener('click', () => {
-        for (let i = 0; i < btnArray.length; i++) {
-            btnArray[i].addEventListener("click", () => {
+
+        const parent = document.getElementById("items");
+            parent.onclick = function () {
+                const a = event;
+                const target = a.target;
+                const target_2 = target.parentElement;
+                const target_3 = target_2.parentElement;
+
+                let i;
+                for(i = 0; i < parent.children.length; i++) {
+                        if(parent.children[i] == target_3)
+                            return i;
+                }
+
                 purchases.splice(i, 1);
-                console.log(i);
+            }
 
                 mostExpPurchase = findMostExpensivePurchase(purchases);
                 mostExpPurCol_1.textContent = mostExpPurchase.name;
@@ -150,12 +164,10 @@ buttonEl.addEventListener("click", () =>{
 
                 totalSumCol_2.textContent = calculateTotal(purchases);
                 totalCountCol_2.textContent = countPurchases(purchases);
-            });
-        }
 
-        itemsEl.removeChild(itemEl);
-        // console.log(btnArray);
-        // console.log(purchases);
+            itemsEl.removeChild(itemEl);
+
+        console.log(purchases);
     });
 
 
