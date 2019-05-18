@@ -139,6 +139,7 @@ buttonEl.addEventListener("click", () =>{
 
             itemsEl.removeChild(itemEl);
 
+
         console.log(purchases);
     });
 
