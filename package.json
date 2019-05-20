@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "live-server src",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage --passWithNoTests"
   },
   "babel": {
     "presets": [
