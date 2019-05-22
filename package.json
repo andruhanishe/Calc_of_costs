@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "live-server src",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "coverage": "jest --coverage"
   },
   "babel": {
