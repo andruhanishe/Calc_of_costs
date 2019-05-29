@@ -111,19 +111,11 @@ buttonEl.addEventListener("click", () => {
         const parent = document.getElementById("items");
         const target = itemEl;
 
-        // console.log(parent);
 
-        // console.log(parent.children.length);
-        // console.log(parent.children[1]);
         let index;
         for (let i = 0; i < parent.children.length; i++) {
             if (parent.children[i] === target)
-                index = i;
-
-            // return console.log(i);
-        }
-
-        // console.log(index);
+                index = i;}
 
         purchases.splice(index, 1);
 
@@ -153,8 +145,8 @@ buttonEl.addEventListener("click", () => {
             totalCountCol_2.textContent = '';
 
         }
+
         itemsEl.removeChild(itemEl);
-        // mostPurchaseEl.removeChild()
 
         console.log(purchases);
     });
