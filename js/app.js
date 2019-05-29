@@ -112,7 +112,10 @@ buttonEl.addEventListener("click", () => {
         const parent = document.getElementById("items");
         const target = itemEl;
 
-
+        let index;
+        for (let i = 0; i < parent.children.length; i++) {
+            if (parent.children[i] === target)
+                index = i;}
 
         purchases.splice(index, 1);
 
