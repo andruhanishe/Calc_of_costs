@@ -31,25 +31,25 @@ const totalCountCol_1 = document.createElement('div');
 const totalCountCol_2 = document.createElement('div');
 
 //------------добавление новой покупки в список по клику------------------
-buttonEl.addEventListener("click", () =>{
+buttonEl.addEventListener("click", () => {
     const nameOfPurchase = inputNameEl.value;
     const categoryOfPurchase = inputCategoryEl.value;
     const priceOfPurchase = Number(inputPriceEl.value);
     purchases.push(new Purchase(nameOfPurchase, categoryOfPurchase, priceOfPurchase));
 
     const itemEl = document.createElement('li');
-        const itemElCol_1 = document.createElement('div');
-            itemEl.appendChild(itemElCol_1);
-            itemElCol_1.className = 'col-3 d-inline-block';
-        const itemElCol_2 = document.createElement('div');
-            itemEl.appendChild(itemElCol_2);
-            itemElCol_2.className = 'col-5 d-inline-block';
-        const itemElCol_3 = document.createElement('div');
-            itemEl.appendChild(itemElCol_3);
-            itemElCol_3.className = 'col-3 d-inline-block';
-        const itemElCol_4 = document.createElement('div');
-            itemEl.appendChild(itemElCol_4);
-            itemElCol_4.className = 'col-1 d-inline-block';
+    const itemElCol_1 = document.createElement('div');
+    itemEl.appendChild(itemElCol_1);
+    itemElCol_1.className = 'col-3 d-inline-block';
+    const itemElCol_2 = document.createElement('div');
+    itemEl.appendChild(itemElCol_2);
+    itemElCol_2.className = 'col-5 d-inline-block';
+    const itemElCol_3 = document.createElement('div');
+    itemEl.appendChild(itemElCol_3);
+    itemElCol_3.className = 'col-3 d-inline-block';
+    const itemElCol_4 = document.createElement('div');
+    itemEl.appendChild(itemElCol_4);
+    itemElCol_4.className = 'col-1 d-inline-block';
 
     itemElCol_1.textContent = nameOfPurchase;
     itemElCol_2.textContent = categoryOfPurchase;
@@ -67,9 +67,9 @@ buttonEl.addEventListener("click", () =>{
     mostExpPurCol_3.className = 'col-3 d-inline-block';
 
     let mostExpPurchase = findMostExpensivePurchase(purchases);
-            mostExpPurCol_1.textContent = mostExpPurchase.name;
-            mostExpPurCol_2.textContent = mostExpPurchase.category;
-            mostExpPurCol_3.textContent = mostExpPurchase.price;
+    mostExpPurCol_1.textContent = mostExpPurchase.name;
+    mostExpPurCol_2.textContent = mostExpPurchase.category;
+    mostExpPurCol_3.textContent = mostExpPurchase.price;
 
 //-------------находим самую дорогую категорию----------------------------
     mostCategoryEl.appendChild(mostExpCatCol_1);
@@ -79,8 +79,8 @@ buttonEl.addEventListener("click", () =>{
 
     let groups = grouping(purchases);
     let mostExpCategory = findMostExpensiveCategory(groups);
-            mostExpCatCol_1.textContent = mostExpCategory.category;
-            mostExpCatCol_2.textContent = mostExpCategory.sum;
+    mostExpCatCol_1.textContent = mostExpCategory.category;
+    mostExpCatCol_2.textContent = mostExpCategory.sum;
 
 //-------------счет общей суммы и количества покупок----------------------
     totalSumCol_1.className = 'col-8 d-inline-block';
@@ -109,36 +109,52 @@ buttonEl.addEventListener("click", () =>{
     removeEl.addEventListener('click', () => {
 
         const parent = document.getElementById("items");
-            parent.onclick = function () {
-                const a = event;
-                const target = a.target;
-                const target_2 = target.parentElement;
-                const target_3 = target_2.parentElement;
+        const target = itemEl;
 
-                let i;
-                for(i = 0; i < parent.children.length; i++) {
-                        if(parent.children[i] == target_3)
-                            return i;
-                }
+        // console.log(parent);
 
-                purchases.splice(i, 1);
-            }
+        // console.log(parent.children.length);
+        // console.log(parent.children[1]);
+        let index;
+        for (let i = 0; i < parent.children.length; i++) {
+            if (parent.children[i] === target)
+                index = i;
 
-                mostExpPurchase = findMostExpensivePurchase(purchases);
-                mostExpPurCol_1.textContent = mostExpPurchase.name;
-                mostExpPurCol_2.textContent = mostExpPurchase.category;
-                mostExpPurCol_3.textContent = mostExpPurchase.price;
+            // return console.log(i);
+        }
 
-                groups = grouping(purchases);
-                mostExpCategory = findMostExpensiveCategory(groups);
-                mostExpCatCol_1.textContent = mostExpCategory.category;
-                mostExpCatCol_2.textContent = mostExpCategory.sum;
+        // console.log(index);
 
-                totalSumCol_2.textContent = calculateTotal(purchases);
-                totalCountCol_2.textContent = countPurchases(purchases);
+        purchases.splice(index, 1);
 
-            itemsEl.removeChild(itemEl);
+        if (purchases.length !== 0) {
+            mostExpPurchase = findMostExpensivePurchase(purchases);
+            mostExpPurCol_1.textContent = mostExpPurchase.name;
+            mostExpPurCol_2.textContent = mostExpPurchase.category;
+            mostExpPurCol_3.textContent = mostExpPurchase.price;
 
+            groups = grouping(purchases);
+            mostExpCategory = findMostExpensiveCategory(groups);
+            mostExpCatCol_1.textContent = mostExpCategory.category;
+            mostExpCatCol_2.textContent = mostExpCategory.sum;
+
+            totalSumCol_2.textContent = calculateTotal(purchases);
+            totalCountCol_2.textContent = countPurchases(purchases);
+        }
+        else {
+            mostExpPurCol_1.textContent = '';
+            mostExpPurCol_2.textContent = '';
+            mostExpPurCol_3.textContent = '';
+
+            mostExpCatCol_1.textContent = '';
+            mostExpCatCol_2.textContent = '';
+
+            totalSumCol_2.textContent = '';
+            totalCountCol_2.textContent = '';
+
+        }
+        itemsEl.removeChild(itemEl);
+        // mostPurchaseEl.removeChild()
 
         console.log(purchases);
     });
