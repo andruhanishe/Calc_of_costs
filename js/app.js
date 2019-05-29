@@ -16,7 +16,8 @@ const totalSumEl = document.getElementById('totalSum');
 const totalCountEl = document.getElementById('totalCount');
 
 //------------создаем нужные блоки на странице------------------
-let purchases = [];
+const purchases = [];
+
 const mostExpPurCol_1 = document.createElement('div');
 const mostExpPurCol_2 = document.createElement('div');
 const mostExpPurCol_3 = document.createElement('div');
