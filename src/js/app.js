@@ -115,7 +115,8 @@ buttonEl.addEventListener("click", () => {
         let index;
         for (let i = 0; i < parent.children.length; i++) {
             if (parent.children[i] === target)
-                index = i;}
+                index = i;
+        }
 
         purchases.splice(index, 1);
 
@@ -132,8 +133,7 @@ buttonEl.addEventListener("click", () => {
 
             totalSumCol_2.textContent = calculateTotal(purchases);
             totalCountCol_2.textContent = countPurchases(purchases);
-        }
-        else {
+        } else {
             mostExpPurCol_1.textContent = '';
             mostExpPurCol_2.textContent = '';
             mostExpPurCol_3.textContent = '';
